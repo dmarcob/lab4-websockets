@@ -27,27 +27,30 @@ class ElizaServerTest {
 
     @Test
     fun onOpen() {
-        val latch = CountDownLatch(3)
+        val latch = CountDownLatch(3) //this thread will wait 3 subthreads
         val list = mutableListOf<String>()
-
         val client = ElizaOnOpenMessageHandler(list, latch)
         container.connectToServer(client, URI("ws://localhost:$port/eliza"))
-        latch.await()
+        latch.await() //await chatbot response
         assertEquals(3, list.size)
         assertEquals("The doctor is in.", list[0])
     }
 
-    @Disabled
+    //@Disabled
     @Test
     fun onChat() {
-        val latch = CountDownLatch(4)
+        val latch = CountDownLatch(5)
         val list = mutableListOf<String>()
-
         val client = ElizaOnOpenMessageHandlerToComplete(list, latch)
-        container.connectToServer(client, URI("ws://localhost:$port/eliza"))
+        val session = container.connectToServer(client, URI("ws://localhost:$port/eliza"))
+        session.getBasicRemote().sendText("i feel sad")
         latch.await()
-        // assertEquals(XXX, list.size) COMPLETE ME
-        // assertEquals(XXX, list[XXX]) COMPLETE ME
+        val responseList = listOf("Tell me more about such feelings.", "Do you often feel sad?",
+                "Do you enjoy feeling sad?", "Why do you feel that way?"
+            )
+
+        assertEquals(5, list.size)
+        assert(list[3] in responseList)
     }
 
 }
@@ -68,8 +71,9 @@ class ElizaOnOpenMessageHandlerToComplete(private val list: MutableList<String>,
     fun onMessage(message: String, session: Session)  {
         list.add(message)
         latch.countDown()
-        // if (COMPLETE ME) {
-        //    COMPLETE ME
-        // }
+        if (latch.count == 0L) {
+           session.close()
+        }
+        
     }
 }
