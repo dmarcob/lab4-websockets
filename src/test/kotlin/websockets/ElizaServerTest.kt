@@ -39,17 +39,16 @@ class ElizaServerTest {
     //@Disabled
     @Test
     fun onChat() {
-        val latch = CountDownLatch(5)
+        val latch = CountDownLatch(4)
         val list = mutableListOf<String>()
         val client = ElizaOnOpenMessageHandlerToComplete(list, latch)
-        val session = container.connectToServer(client, URI("ws://localhost:$port/eliza"))
-        session.getBasicRemote().sendText("i feel sad")
+        container.connectToServer(client, URI("ws://localhost:$port/eliza"))
         latch.await()
         val responseList = listOf("Tell me more about such feelings.", "Do you often feel sad?",
                 "Do you enjoy feeling sad?", "Why do you feel that way?"
             )
 
-        assertEquals(5, list.size)
+        assertEquals(4, list.size)
         assert(list[3] in responseList)
     }
 
@@ -71,8 +70,9 @@ class ElizaOnOpenMessageHandlerToComplete(private val list: MutableList<String>,
     fun onMessage(message: String, session: Session)  {
         list.add(message)
         latch.countDown()
-        if (latch.count == 0L) {
-           session.close()
+        System.out.println(latch.count.toString() + message)
+        if (latch.count == 1L) {
+            session.getBasicRemote().sendText("i feel sad")
         }
         
     }
