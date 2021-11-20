@@ -38,5 +38,5 @@ Finally when the STOMP response is prepared, the server broadcasts it
 on `/topic/greetings` message broker channel and every client subscribed to this 
 channel is able to see the new broadcasted content.
 
-####Demostration
+#### Demonstration
 ![demostracion](https://user-images.githubusercontent.com/45805074/142741235-60f0d838-386b-4563-a6ff-6f764e143dcc.gif)
