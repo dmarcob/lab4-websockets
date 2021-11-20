@@ -1,3 +1,5 @@
+//Code is from https://spring.io/guides/gs/messaging-stomp-websocket/
+
 var stompClient = null;
 
 function setConnected(connected) {

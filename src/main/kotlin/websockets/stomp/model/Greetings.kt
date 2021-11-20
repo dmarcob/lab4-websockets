@@ -1,4 +1,4 @@
-package websocket
+package websockets.stomp.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

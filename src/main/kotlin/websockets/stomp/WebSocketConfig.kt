@@ -1,4 +1,5 @@
-package websockets
+package websockets.stomp
+//Code is from https://spring.io/guides/gs/messaging-stomp-websocket/
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker
