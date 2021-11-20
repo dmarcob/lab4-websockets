@@ -1,3 +1,5 @@
 package websocket
 
-data class HelloMessage(val name: String)
+import com.fasterxml.jackson.annotation.JsonProperty
+
+class HelloMessage( @JsonProperty("name") val name: String)

@@ -1,3 +1,5 @@
 package websocket
 
-data class Greeting(val content: String)
+import com.fasterxml.jackson.annotation.JsonProperty
+
+data class Greeting( @JsonProperty("content") val content: String)
