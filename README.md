@@ -26,7 +26,6 @@ Solutions must meet primary goals too.
 
 Proposed:
 
-- Support STOMP in the server side and create a small client that uses it.
 - Support SockJS in the server side and show that xhr-polling can be used as transport instead of WebSocket when needed ([additional info](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#websocket-fallback-sockjs-client)).
 - Turn the DOCTOR into a client of the server, so, the server acts only as message broker.
 - Use the server as a relay server to connect to an external message broker (e.g. RabbitMQ, [additional info](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#websocket-stomp-handle-broker-relay))
@@ -39,7 +38,7 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 | User name | NIA | CI | Solution | Score |
 |--------|-----------|------|--------------|-------------|
 |[UNIZAR-30246-WebEngineering](https://github.com/UNIZAR-30246-WebEngineering/lab4-websockets) | 30246 | [![Build Status](https://github.com/UNIZAR-30246-WebEngineering/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/UNIZAR-30246-WebEngineering/lab4-websockets/actions/workflows/ci.yml) |
-|[Diego Marco](https://github.com/dmarcob/lab4-websockets/tree/test) | 755232 | [![Build Status](https://github.com/dmarcob/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/dmarcob/lab4-websockets/actions/workflows/ci.yml) | [ElizaServerTest](https://github.com/dmarcob/lab4-websockets/blob/test/src/test/kotlin/websockets/ElizaServerTest.kt) | [Greeting application](https://github.com/dmarcob/lab4-websockets/blob/gift/documentation.md)
+|[Diego Marco](https://github.com/dmarcob/lab4-websockets/tree/test) | 755232 | [![Build Status](https://github.com/dmarcob/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/dmarcob/lab4-websockets/actions/workflows/ci.yml) | [ElizaServerTest](https://github.com/dmarcob/lab4-websockets/blob/test/src/test/kotlin/websockets/ElizaServerTest.kt) | [Support STOMP in the server side and create a small client that uses it](https://github.com/dmarcob/lab4-websockets/blob/gift/documentation.md) :gift:
 |[Óscar Pueyo](https://github.com/iksopo/lab4-websockets) | 780378 | [![Build Status](https://github.com/iksopo/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/iksopo/lab4-websockets/actions/workflows/ci.yml) | [Solution](https://github.com/iksopo/lab4-websockets/blob/test/src/test/kotlin/websockets/ElizaServerTest.kt)
 |[María Peña](https://github.com/Keyleth8/lab4-websockets/tree/test) | 780448 | [![Build Status](https://github.com/Keyleth8/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/Keyleth8/lab4-websockets/actions/workflows/ci.yml) | [Solution](https://github.com/Keyleth8/lab4-websockets/blob/test/src/test/kotlin/websockets/ElizaServerTest.kt) |
 |[Mateo Vallejo](https://github.com/CursedR3N/lab4-websockets) | 780029 | [![Build Status](https://github.com/CursedR3N/lab4-websockets/actions/workflows/ci.yml/badge.svg)](https://github.com/CursedR3N/lab4-websockets/actions/workflows/ci.yml) | [ElizaServerTest](https://github.com/CursedR3N/lab4-websockets/blob/test/src/test/kotlin/websockets/ElizaServerTest.kt) |
